@@ -245,6 +245,7 @@ export class CarouselComponent implements AfterViewInit {
    * Removes active subscriptions and clear interval autoplay.
    */
   ngOnDestroy() {
+    if (!this.isBrowser) return;
     window.removeEventListener('resize', this.resizeEvent);
     window.removeEventListener('mouseup', this.mouseUpEvent);
     document.removeEventListener('visibilitychange', this.visibilityEvent);
